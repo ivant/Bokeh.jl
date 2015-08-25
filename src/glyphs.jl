@@ -12,12 +12,12 @@ function Bokehjs.Glyph(glyphtype::Symbol,
                dash::Union(Nothing, Vector{Int64}),
                fields::Union(Nothing, Dict{Symbol, Symbol}))
     props = @Compat.compat Dict(
-        :linecolor => linecolor == nothing ? omit : @Compat.compat(Dict{Symbol, BkAny}(:value => linecolor)),
-        :linewidth => linewidth == nothing ? omit : @Compat.compat(Dict{Symbol, BkAny}(:units => :data, :value =>linewidth)),
-        :linealpha => linealpha == nothing ? omit : @Compat.compat(Dict{Symbol, BkAny}(:units => :data, :value =>linealpha)),
-        :fillalpha => fillalpha == nothing ? omit : @Compat.compat(Dict{Symbol, BkAny}(:units => :data, :value =>fillalpha)),
-        :size => size == nothing ? omit : @Compat.compat(Dict{Symbol, BkAny}(:units => :screen, :value =>size)),
-        :fillcolor => fillcolor == nothing ? omit : @Compat.compat(Dict{Symbol, BkAny}(:value =>fillcolor)),
+        :linecolor => (linecolor == nothing ? omit : @Compat.compat(Dict{Symbol, BkAny}(:value => linecolor))),
+        :linewidth => (linewidth == nothing ? omit : @Compat.compat(Dict{Symbol, BkAny}(:units => :data, :value =>linewidth))),
+        :linealpha => (linealpha == nothing ? omit : @Compat.compat(Dict{Symbol, BkAny}(:units => :data, :value =>linealpha))),
+        :fillalpha => (fillalpha == nothing ? omit : @Compat.compat(Dict{Symbol, BkAny}(:units => :data, :value =>fillalpha))),
+        :size => (size == nothing ? omit : @Compat.compat(Dict{Symbol, BkAny}(:units => :screen, :value =>size))),
+        :fillcolor => (fillcolor == nothing ? omit : @Compat.compat(Dict{Symbol, BkAny}(:value =>fillcolor))),
     )
     if fields != nothing
         for (field, val) in fields
